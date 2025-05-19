@@ -104,10 +104,10 @@ for epoch in range(1, EPOCHS + 1):
 
 # Save
 torch.save(model.state_dict(), "efficientnet_precipitation_model.pth")
-print("✅ Model saved.")
+print(" Model saved.")
 
 # =====================
-# ✅ Evaluation
+#  Evaluation
 # =====================
 model.eval()
 y_true, y_pred, y_scores = [], [], []
@@ -122,12 +122,12 @@ with torch.no_grad():
         y_scores.extend(probs.cpu().numpy())
 
 # Classification Report
-print("\n📊 Classification Report:")
+print("\n Classification Report:")
 print(classification_report(y_true, y_pred, target_names=class_labels))
 
 # Confusion Matrix
 cm = confusion_matrix(y_true, y_pred)
-print("\n🧩 Confusion Matrix:")
+print("\n Confusion Matrix:")
 print(cm)
 print("\nLabeled Confusion Matrix:")
 for i, row in enumerate(cm):
@@ -171,4 +171,4 @@ plt.legend(loc='lower right')
 plt.tight_layout()
 plt.savefig("roc_curves.png")
 plt.close()
-print("📈 Plots saved: confusion_matrix.png, roc_curves.png")
+print(" Plots saved: confusion_matrix.png, roc_curves.png")
